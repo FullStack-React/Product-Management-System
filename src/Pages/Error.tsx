@@ -4,7 +4,7 @@ import Button from '../Components/purpleButton';
 
 const Error = () => {
   return (
-    <div className="flex items-center justify-center sm:w-[1323px] sm:h-[713px] h-[calc(100vh-121px-152px)] bg-white flex-grow sm:m-auto sm:mt-[81px]">
+    <div className="flex items-center justify-center sm:w-[1323px] sm:h-[713px] h-full bg-white flex-grow sm:m-auto sm:mt-[81px]">
       <div className="flex-col flex items-center sm:space-y-6 space-y-5">
         <div className="sm:block hidden">
           <svg

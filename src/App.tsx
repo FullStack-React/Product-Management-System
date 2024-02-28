@@ -22,7 +22,7 @@ const App: React.FC = () => {
     <div className="flex flex-col min-h-screen">
       <Header />
 
-      <div className="bg-[#F9FAFB] flex-grow ">
+      <div className="h-0 bg-[#F9FAFB] flex-grow ">
         <Router>
           <Routes>
             <Route path="/" element={<Outlet />}>
