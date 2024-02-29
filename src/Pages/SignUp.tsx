@@ -8,6 +8,28 @@ import { Link } from 'react-router-dom';
 const Login: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const [validEmail, setValidEmail] = useState(true);
+  const [validPassword, setValidPassword] = useState(true);
+
+  const handleSignUp = () => {
+    let found = email.match(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g);
+    if (found) {
+      setValidEmail(true);
+    } else {
+      setEmail('');
+      setValidEmail(false);
+    }
+    found = password.match(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/g,
+    );
+    if (found) {
+      setValidPassword(true);
+    } else {
+      setPassword('');
+      setValidPassword(false);
+    }
+  };
   return (
     <div className="flex h-full justify-center">
       <Form title="Sign up an account">
@@ -20,6 +42,7 @@ const Login: React.FC = () => {
             value={email}
             onChange={e => setEmail(e.target.value)}
             placeholder="email@example.com"
+            valid={validEmail}
           />
           <InputGroup
             for="password"
@@ -29,8 +52,9 @@ const Login: React.FC = () => {
             value={password}
             onChange={e => setPassword(e.target.value)}
             placeholder="password"
+            valid={validPassword}
           />
-          <PurpleButton onClick={() => console.log('Sign Up')} paddingy="3">
+          <PurpleButton onClick={handleSignUp} paddingy="3">
             Create account
           </PurpleButton>
           <div className="flex flex-col md:flex-row items-center md:justify-between">
