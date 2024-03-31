@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../Components/PrimaryButton';
+import { useAppSelector, useAppDispatch } from '../app/hooks';
+import { selectRequestStatus } from '../features/users/UserSlice';
+import { resetRequestStatus } from '../features/users/UserSlice';
 
 const Error = () => {
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(resetRequestStatus());
+  }, [dispatch]);
   return (
     <div className="flex items-center justify-center md:mx-[64px] bg-white flex-grow md:m-auto md:my-[81px] ">
       <div className="flex-col flex items-center md:space-y-6 space-y-5">

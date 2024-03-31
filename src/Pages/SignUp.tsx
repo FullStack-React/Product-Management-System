@@ -58,13 +58,13 @@ const SignUp: React.FC = () => {
     );
     if (found) {
       setValidPassword(true);
+      dispatch(
+        signupUser({ email: email, password: password, role: role as Role }),
+      );
     } else {
       setPassword('');
       setValidPassword(false);
     }
-    dispatch(
-      signupUser({ email: email, password: password, role: role as Role }),
-    );
   };
   return (
     <div className="flex flex-grow justify-center">
