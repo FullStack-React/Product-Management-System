@@ -1,18 +1,14 @@
-import type React from 'react';
 import { useState, useEffect } from 'react';
 import PrimaryButton from '../Components/PrimaryButton';
 import Form from '../Components/form';
 import InputGroup from '../Components/inputGroup';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
-import {
-  resetRequestStatus,
-  selectRequestStatus,
-} from '../features/users/UserSlice';
+import { selectRequestStatus } from '../features/users/UserSlice';
 import { loginUser } from '../features/users/UserThunkApi';
 import { selectUserStatus } from '../features/users/UserSlice';
 
-const Login: React.FC = () => {
+const Login = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
